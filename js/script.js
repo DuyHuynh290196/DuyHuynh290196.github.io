@@ -254,7 +254,18 @@ function renderCtas(resume) {
     ${renderContactCta("phone", resume.cta.call, phoneHref)}
   `;
 
-  document.getElementById("downloadButton").addEventListener("click", async (event) => {
+  bindDownloadButton(resume);
+}
+
+function bindDownloadButton(resume) {
+  const button = document.getElementById("downloadButton");
+
+  if (!button || button.dataset.bound === "true") {
+    return;
+  }
+
+  button.dataset.bound = "true";
+  button.addEventListener("click", async (event) => {
     const button = event.currentTarget;
 
     if (button.disabled) {
@@ -393,10 +404,21 @@ function setLanguage(lang) {
 
 async function init() {
   const initialEnResume = getInitialResume("en");
+  const hasPrerenderedEnContent = Boolean(
+    initialEnResume &&
+      document.getElementById("summary")?.children.length &&
+      document.getElementById("contactList")?.children.length
+  );
 
   if (initialEnResume) {
     state.resumes.en = initialEnResume;
-    renderPage();
+
+    if (hasPrerenderedEnContent) {
+      bindDownloadButton(initialEnResume);
+      updateLanguageButtons();
+    } else {
+      renderPage();
+    }
   } else {
     updateLanguageButtons();
   }
