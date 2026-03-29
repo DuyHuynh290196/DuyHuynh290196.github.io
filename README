@@ -1,0 +1,14 @@
+run build: node scripts/build-inline-resume.js
+run local: python3 -m http.server
+
+edit resume data in:
+- data/resume.en.json
+- data/resume.vn.json
+
+the en resume is inlined into index.html by the build script for faster first render.
+
+github pages:
+- workflow file: .github/workflows/deploy-pages.yml
+- set Pages source to "GitHub Actions" in repository settings
+- push `develop` to run build checks and get a preview artifact from Actions
+- deploy production from `main` only

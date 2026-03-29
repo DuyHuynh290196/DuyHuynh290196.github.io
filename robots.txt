@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://duyhuynh290196.github.io/myCV/sitemap.xml

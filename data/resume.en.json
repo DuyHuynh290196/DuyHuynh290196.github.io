@@ -1,0 +1,194 @@
+{
+  "name": "Huỳnh Khắc Duy",
+  "role": "Full-Stack Developer",
+  "availability": "Open to full-time remote or hybrid opportunities",
+  "heroTitle": "Readable CV, faster recruiter actions.",
+  "cta": {
+    "download": "Download CV PDF",
+    "email": "Email me",
+    "call": "Call now"
+  },
+  "sections": {
+    "contact": "Contact",
+    "personal": "Personal Profile",
+    "skills": "Skills",
+    "languages": "Languages",
+    "desiredJob": "Desired Job",
+    "social": "Social Links",
+    "experience": "Experience",
+    "education": "Education",
+    "certificates": "Other Certificates"
+  },
+  "summary": [
+    "Full-Stack Developer with 5+ years of experience in JavaScript, Node.js, ReactJS, Angular, PHP Yii2, OXID7, Laravel, and modern database systems.",
+    "Strong in OOP, API integration, data migration, troubleshooting, and shipping maintainable products with Docker and AWS deployment workflows.",
+    "Collaborative and proactive in requirement analysis, solution design, and delivery, with a strong focus on clean execution and team results."
+  ],
+  "contact": [
+    {
+      "icon": "phone",
+      "text": "0397186707",
+      "href": "tel:0397186707"
+    },
+    {
+      "icon": "location",
+      "text": "Long Hoa, Can Tho"
+    },
+    {
+      "icon": "email",
+      "text": "huynhkhacduy2901@gmail.com",
+      "href": "mailto:huynhkhacduy2901@gmail.com"
+    }
+  ],
+  "personalProfile": [
+    {
+      "label": "Gender",
+      "value": "Male"
+    },
+    {
+      "label": "Birthday",
+      "value": "29/01/1996"
+    },
+    {
+      "label": "Marital status",
+      "value": "Married"
+    },
+    {
+      "label": "Nationality",
+      "value": "Vietnamese"
+    },
+    {
+      "label": "Country",
+      "value": "Vietnam"
+    },
+    {
+      "label": "Location",
+      "value": "Can Tho"
+    },
+    {
+      "label": "District",
+      "value": "Binh Thuy"
+    }
+  ],
+  "skills": [
+    {
+      "name": "PHP, Node.js",
+      "level": 4
+    },
+    {
+      "name": "JavaScript, Angular, ReactJS",
+      "level": 4
+    },
+    {
+      "name": "MySQL/SQL Server, MongoDB",
+      "level": 4
+    },
+    {
+      "name": "Docker, AWS",
+      "level": 3
+    }
+  ],
+  "languages": [
+    {
+      "name": "English - Intermediate",
+      "level": 3
+    }
+  ],
+  "desiredJob": [
+    {
+      "label": "Level",
+      "value": "Experienced (Non-Manager)"
+    },
+    {
+      "label": "Salary",
+      "value": "Negotiable"
+    },
+    {
+      "label": "Benefits",
+      "value": "Insurance"
+    },
+    {
+      "label": "Job type",
+      "value": "Full time"
+    },
+    {
+      "label": "Work type",
+      "value": "Work from home"
+    },
+    {
+      "label": "Industry",
+      "value": "IT - Software"
+    },
+    {
+      "label": "Location",
+      "value": "Binh Thuy, Can Tho"
+    }
+  ],
+  "experienceMeta": [
+    {
+      "label": "Experience",
+      "value": "5+ years"
+    },
+    {
+      "label": "Current Level",
+      "value": "Experienced (Non-Manager)"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Fullstack Developer - Decagon",
+      "dates": "02/2024 - Present",
+      "type": "Full time",
+      "bullets": [
+        "Updated UI and core functionality for active client-facing products.",
+        "Integrated APIs, migrated data, upgraded systems, and supported release and deployment workflows."
+      ]
+    },
+    {
+      "title": "Fullstack Developer - Waverley Software Viet Nam",
+      "dates": "01/2019 - 02/2024",
+      "type": "Full time",
+      "bullets": [
+        "Delivered UI and feature updates based on customer requirements across multiple projects.",
+        "Handled API integrations, data migration, and system version upgrades to keep products stable and maintainable."
+      ]
+    }
+  ],
+  "educationMeta": [
+    {
+      "label": "Highest Degree Level",
+      "value": "Bachelor"
+    },
+    {
+      "label": "Completion date",
+      "value": "09/2019"
+    }
+  ],
+  "educationSchool": "Can Tho University",
+  "educationDetails": [
+    {
+      "label": "Degree",
+      "value": "Bachelor"
+    }
+  ],
+  "certificates": [
+    {
+      "title": "The Complete Angular Course: Beginner to Advanced",
+      "source": "Udemy",
+      "period": "From 25/05/2020 - Unlimited"
+    },
+    {
+      "title": "Node JS: Advanced Concepts",
+      "source": "Udemy",
+      "period": "From 25/12/2020 - Unlimited"
+    }
+  ],
+  "socialLinks": [
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/duyhuynh2901",
+      "icon": "linkedin"
+    }
+  ],
+  "socialNote": ""
+}

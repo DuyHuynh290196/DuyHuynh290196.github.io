@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Huỳnh Khắc Duy | Full-Stack Developer</title>
+    <meta
+      name="description"
+      content="Full-Stack Developer with 5+ years of experience in JavaScript, Node.js, ReactJS, Angular, PHP, Laravel, Docker, AWS, and modern database systems."
+    />
+    <meta
+      name="keywords"
+      content="Huynh Khac Duy, Full-Stack Developer, JavaScript, Node.js, ReactJS, Angular, PHP, Laravel, Docker, AWS, Web CV, Portfolio"
+    />
+    <meta name="author" content="Huỳnh Khắc Duy" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#2f3a40" />
+    <link rel="canonical" href="https://duyhuynh290196.github.io/myCV/" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Huỳnh Khắc Duy CV" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Huỳnh Khắc Duy | Full-Stack Developer" />
+    <meta
+      property="og:description"
+      content="Explore the portfolio and CV of Huỳnh Khắc Duy, a Full-Stack Developer with 5+ years of experience across JavaScript, PHP, ReactJS, Angular, Docker, and AWS."
+    />
+    <meta property="og:url" content="https://duyhuynh290196.github.io/myCV/" />
+    <meta
+      property="og:image"
+      content="https://duyhuynh290196.github.io/myCV/assets/avatar.jpg"
+    />
+    <meta property="og:image:alt" content="Portrait of Huỳnh Khắc Duy" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Huỳnh Khắc Duy | Full-Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio and CV of Huỳnh Khắc Duy, Full-Stack Developer with 5+ years of experience in JavaScript, PHP, ReactJS, Angular, Docker, and AWS."
+    />
+    <meta
+      name="twitter:image"
+      content="https://duyhuynh290196.github.io/myCV/assets/avatar.jpg"
+    />
+    <meta name="twitter:image:alt" content="Portrait of Huỳnh Khắc Duy" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Huỳnh Khắc Duy",
+        "jobTitle": "Full-Stack Developer",
+        "description": "Full-Stack Developer with 5+ years of experience in JavaScript, Node.js, ReactJS, Angular, PHP, Laravel, Docker, AWS, and modern database systems.",
+        "image": "https://duyhuynh290196.github.io/myCV/assets/avatar.jpg",
+        "url": "https://duyhuynh290196.github.io/myCV/",
+        "email": "mailto:huynhkhacduy2901@gmail.com",
+        "telephone": "+84397186707",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Can Tho",
+          "addressCountry": "VN"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/duyhuynh2901"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <main class="page">
+        <aside class="sidebar">
+          <section class="profile">
+            <div class="avatar" aria-label="Profile photo">
+              <img
+                src="assets/avatar.jpg"
+                alt="Huỳnh Khắc Duy"
+                width="256"
+                height="256"
+              />
+            </div>
+            <div class="name-card">
+              <div class="name">Huỳnh Khắc Duy</div>
+              <div class="role" id="roleText"></div>
+            </div>
+          </section>
+
+          <section class="section section--cta">
+            <div class="cta-row cta-row--sidebar" id="ctaRow"></div>
+          </section>
+
+          <section class="section section--contact">
+            <div class="section-title" id="contactTitle"></div>
+            <ul class="contact-list" id="contactList"></ul>
+          </section>
+
+          <section class="section section--personal">
+            <div class="section-title" id="personalTitle"></div>
+            <div class="profile-grid" id="personalProfile"></div>
+          </section>
+
+          <section class="section section--skills">
+            <div class="section-title" id="skillsTitle"></div>
+            <div id="skillList"></div>
+          </section>
+
+          <section class="section section--languages">
+            <div class="section-title" id="languagesTitle"></div>
+            <div id="languageList"></div>
+          </section>
+
+          <section class="section section--desired">
+            <div class="section-title" id="desiredJobTitle"></div>
+            <div class="desired-job-grid" id="desiredJobList"></div>
+          </section>
+
+          <section class="section section--social">
+            <div class="section-title" id="socialTitle"></div>
+            <div class="social-links" id="socialLinks"></div>
+            <p class="social-note" id="socialNote"></p>
+          </section>
+        </aside>
+
+        <section class="main">
+          <div class="summary" id="summary"></div>
+
+          <section class="section">
+            <div class="section-title-main" id="experienceTitle"></div>
+            <div class="kv-grid" id="experienceMeta"></div>
+            <div id="experienceJobs"></div>
+          </section>
+
+          <section class="section">
+            <div class="section-title-main" id="educationTitle"></div>
+            <div class="kv-grid" id="educationMeta"></div>
+            <div class="edu-school" id="educationSchool"></div>
+            <div class="kv-grid" id="educationDetails"></div>
+          </section>
+
+          <section class="section">
+            <div class="section-title-main" id="certificatesTitle"></div>
+            <div class="certificate-list" id="certificateList"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+    <div
+      class="language-switch language-switch--floating"
+      aria-label="Language switcher"
+    >
+      <button type="button" class="language-button" data-lang="vi" aria-pressed="false">
+        VI
+      </button>
+      <button
+        type="button"
+        class="language-button is-active"
+        data-lang="en"
+        aria-pressed="true"
+      >
+        EN
+      </button>
+    </div>
+    <!-- resume:en:start -->
+    <script type="application/json" id="initialResumeDataEn">
+      {
+        "name": "Huỳnh Khắc Duy",
+        "role": "Full-Stack Developer",
+        "availability": "Open to full-time remote or hybrid opportunities",
+        "heroTitle": "Readable CV, faster recruiter actions.",
+        "cta": {
+          "download": "Download CV PDF",
+          "email": "Email me",
+          "call": "Call now"
+        },
+        "sections": {
+          "contact": "Contact",
+          "personal": "Personal Profile",
+          "skills": "Skills",
+          "languages": "Languages",
+          "desiredJob": "Desired Job",
+          "social": "Social Links",
+          "experience": "Experience",
+          "education": "Education",
+          "certificates": "Other Certificates"
+        },
+        "summary": [
+          "Full-Stack Developer with 5+ years of experience in JavaScript, Node.js, ReactJS, Angular, PHP Yii2, OXID7, Laravel, and modern database systems.",
+          "Strong in OOP, API integration, data migration, troubleshooting, and shipping maintainable products with Docker and AWS deployment workflows.",
+          "Collaborative and proactive in requirement analysis, solution design, and delivery, with a strong focus on clean execution and team results."
+        ],
+        "contact": [
+          {
+            "icon": "phone",
+            "text": "0397186707",
+            "href": "tel:0397186707"
+          },
+          {
+            "icon": "location",
+            "text": "Long Hoa, Can Tho"
+          },
+          {
+            "icon": "email",
+            "text": "huynhkhacduy2901@gmail.com",
+            "href": "mailto:huynhkhacduy2901@gmail.com"
+          }
+        ],
+        "personalProfile": [
+          {
+            "label": "Gender",
+            "value": "Male"
+          },
+          {
+            "label": "Birthday",
+            "value": "29/01/1996"
+          },
+          {
+            "label": "Marital status",
+            "value": "Married"
+          },
+          {
+            "label": "Nationality",
+            "value": "Vietnamese"
+          },
+          {
+            "label": "Country",
+            "value": "Vietnam"
+          },
+          {
+            "label": "Location",
+            "value": "Can Tho"
+          },
+          {
+            "label": "District",
+            "value": "Binh Thuy"
+          }
+        ],
+        "skills": [
+          {
+            "name": "PHP, Node.js",
+            "level": 4
+          },
+          {
+            "name": "JavaScript, Angular, ReactJS",
+            "level": 4
+          },
+          {
+            "name": "MySQL/SQL Server, MongoDB",
+            "level": 4
+          },
+          {
+            "name": "Docker, AWS",
+            "level": 3
+          }
+        ],
+        "languages": [
+          {
+            "name": "English - Intermediate",
+            "level": 3
+          }
+        ],
+        "desiredJob": [
+          {
+            "label": "Level",
+            "value": "Experienced (Non-Manager)"
+          },
+          {
+            "label": "Salary",
+            "value": "Negotiable"
+          },
+          {
+            "label": "Benefits",
+            "value": "Insurance"
+          },
+          {
+            "label": "Job type",
+            "value": "Full time"
+          },
+          {
+            "label": "Work type",
+            "value": "Work from home"
+          },
+          {
+            "label": "Industry",
+            "value": "IT - Software"
+          },
+          {
+            "label": "Location",
+            "value": "Binh Thuy, Can Tho"
+          }
+        ],
+        "experienceMeta": [
+          {
+            "label": "Experience",
+            "value": "5+ years"
+          },
+          {
+            "label": "Current Level",
+            "value": "Experienced (Non-Manager)"
+          }
+        ],
+        "experience": [
+          {
+            "title": "Fullstack Developer - Decagon",
+            "dates": "02/2024 - Present",
+            "type": "Full time",
+            "bullets": [
+              "Updated UI and core functionality for active client-facing products.",
+              "Integrated APIs, migrated data, upgraded systems, and supported release and deployment workflows."
+            ]
+          },
+          {
+            "title": "Fullstack Developer - Waverley Software Viet Nam",
+            "dates": "01/2019 - 02/2024",
+            "type": "Full time",
+            "bullets": [
+              "Delivered UI and feature updates based on customer requirements across multiple projects.",
+              "Handled API integrations, data migration, and system version upgrades to keep products stable and maintainable."
+            ]
+          }
+        ],
+        "educationMeta": [
+          {
+            "label": "Highest Degree Level",
+            "value": "Bachelor"
+          },
+          {
+            "label": "Completion date",
+            "value": "09/2019"
+          }
+        ],
+        "educationSchool": "Can Tho University",
+        "educationDetails": [
+          {
+            "label": "Degree",
+            "value": "Bachelor"
+          }
+        ],
+        "certificates": [
+          {
+            "title": "The Complete Angular Course: Beginner to Advanced",
+            "source": "Udemy",
+            "period": "From 25/05/2020 - Unlimited"
+          },
+          {
+            "title": "Node JS: Advanced Concepts",
+            "source": "Udemy",
+            "period": "From 25/12/2020 - Unlimited"
+          }
+        ],
+        "socialLinks": [
+          {
+            "label": "LinkedIn",
+            "href": "https://www.linkedin.com/in/duyhuynh2901",
+            "icon": "linkedin"
+          }
+        ],
+        "socialNote": ""
+      }
+    </script>
+    <!-- resume:en:end -->
+    <script src="js/printPDF.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
