@@ -263,6 +263,7 @@ body {
 }
 
 .name-card .name {
+  margin: 0;
   font-weight: 700;
   font-size: 1.15rem;
 }
@@ -279,6 +280,7 @@ body {
 }
 
 .section-title {
+  margin: 0;
   border: 1px solid var(--accent);
   color: var(--accent);
   font-family: var(--font-heading);
@@ -445,6 +447,7 @@ body {
 }
 
 .section-title-main {
+  margin: 14px 0 8px;
   border: 1px solid var(--line);
   color: #62707a;
   font-family: var(--font-heading);
@@ -454,7 +457,6 @@ body {
   text-align: center;
   letter-spacing: 0.06em;
   padding: 5px 8px;
-  margin: 14px 0 8px;
 }
 
 .kv-grid {
