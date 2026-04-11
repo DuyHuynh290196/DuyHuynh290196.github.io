@@ -40,11 +40,16 @@ function showToast(message) {
 const copyIconSvg = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>`;
 
 // ── Page fade on language switch ───────────────────────────────────────────
-function triggerPageFade() {
+function withPageFade(callback) {
   const page = document.querySelector(".page");
-  page.classList.remove("page-content-fade");
-  void page.offsetWidth; // reflow to restart animation
-  page.classList.add("page-content-fade");
+  page.classList.add("is-fading-out");
+  setTimeout(() => {
+    callback();
+    page.classList.remove("is-fading-out", "is-fading-in");
+    void page.offsetWidth; // reflow to restart animation
+    page.classList.add("is-fading-in");
+    page.addEventListener("animationend", () => page.classList.remove("is-fading-in"), { once: true });
+  }, 150);
 }
 
 const icons = {
@@ -432,9 +437,10 @@ function setLanguage(lang) {
     return;
   }
 
-  state.lang = lang;
-  triggerPageFade();
-  renderPage();
+  withPageFade(() => {
+    state.lang = lang;
+    renderPage();
+  });
   trackEvent("language_switch", { lang });
 }
 
