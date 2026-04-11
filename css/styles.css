@@ -575,8 +575,18 @@ body {
 }
 
 /* Page fade transition for language switch */
-.page-content-fade {
-  animation: fadeIn 0.22s ease;
+.page {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.page.is-fading-out {
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+}
+
+.page.is-fading-in {
+  animation: fadeIn 0.2s ease forwards;
 }
 
 @keyframes fadeIn {
