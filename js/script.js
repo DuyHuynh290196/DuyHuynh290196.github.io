@@ -247,43 +247,14 @@ function renderCtas(resume) {
   ctaRow.innerHTML = `
     <button type="button" class="cta-button" id="downloadButton">
       <span class="cta-icon">${renderIcon("download")}</span>
-      <span class="cta-loader" aria-hidden="true"></span>
       <span>${escapeHtml(resume.cta.download)}</span>
     </button>
     ${renderContactCta("email", resume.cta.email, emailHref)}
     ${renderContactCta("phone", resume.cta.call, phoneHref)}
   `;
 
-  bindDownloadButton(resume);
-}
-
-function bindDownloadButton(resume) {
-  const button = document.getElementById("downloadButton");
-
-  if (!button || button.dataset.bound === "true") {
-    return;
-  }
-
-  button.dataset.bound = "true";
-  button.addEventListener("click", async (event) => {
-    const button = event.currentTarget;
-
-    if (button.disabled) {
-      return;
-    }
-
-    button.disabled = true;
-    button.classList.add("is-loading");
-
-    try {
-      await window.ResumePrint.exportResumePdf({
-        resume,
-        lang: state.lang,
-      });
-    } finally {
-      button.disabled = false;
-      button.classList.remove("is-loading");
-    }
+  document.getElementById("downloadButton").addEventListener("click", () => {
+    window.ResumePrint.exportResumePdf({ lang: state.lang });
   });
 }
 
@@ -404,21 +375,10 @@ function setLanguage(lang) {
 
 async function init() {
   const initialEnResume = getInitialResume("en");
-  const hasPrerenderedEnContent = Boolean(
-    initialEnResume &&
-      document.getElementById("summary")?.children.length &&
-      document.getElementById("contactList")?.children.length
-  );
 
   if (initialEnResume) {
     state.resumes.en = initialEnResume;
-
-    if (hasPrerenderedEnContent) {
-      bindDownloadButton(initialEnResume);
-      updateLanguageButtons();
-    } else {
-      renderPage();
-    }
+    renderPage();
   } else {
     updateLanguageButtons();
   }
