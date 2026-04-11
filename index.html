@@ -46,6 +46,7 @@
     <meta name="twitter:image:alt" content="Portrait of Huỳnh Khắc Duy" />
 
     <link rel="stylesheet" href="css/styles.css" />
+    <script defer data-domain="duyhuynh290196.github.io" src="https://plausible.io/js/script.js"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -150,8 +151,12 @@
     </div>
     <div
       class="language-switch language-switch--floating"
-      aria-label="Language switcher"
+      aria-label="Language and theme switcher"
     >
+      <button type="button" class="dark-mode-btn" id="darkModeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg id="iconSun" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M12 5a7 7 0 1 0 0 14A7 7 0 0 0 12 5Zm0 2a5 5 0 1 1 0 10A5 5 0 0 1 12 7ZM12 1a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V2a1 1 0 0 1 1-1Zm0 19a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM3.22 4.64a1 1 0 0 1 1.42 0l.7.7a1 1 0 1 1-1.41 1.42l-.71-.71a1 1 0 0 1 0-1.41Zm14.14 14.14a1 1 0 0 1 1.42 0l.7.71a1 1 0 0 1-1.41 1.41l-.71-.7a1 1 0 0 1 0-1.42ZM1 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H2a1 1 0 0 1-1-1Zm19 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1ZM4.64 19.78a1 1 0 0 1 0-1.42l.7-.7a1 1 0 1 1 1.42 1.41l-.71.71a1 1 0 0 1-1.41 0ZM18.36 5.64a1 1 0 0 1 0-1.42l.71-.7a1 1 0 1 1 1.41 1.41l-.7.71a1 1 0 0 1-1.42 0Z"/></svg>
+        <svg id="iconMoon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 2a10 10 0 1 0 9.9 11.3A7 7 0 0 1 12.1 2Zm0 2.1a5 5 0 0 1 4.3 2.4A9 9 0 0 0 12 20a8 8 0 0 1 0-16Z"/></svg>
+      </button>
       <button type="button" class="language-button" data-lang="vi">
         VI
       </button>
@@ -159,6 +164,7 @@
         EN
       </button>
     </div>
+    <div class="copy-toast" id="copyToast" role="status" aria-live="polite"></div>
     <!-- resume:en:start -->
     <script type="application/json" id="initialResumeDataEn">
       {

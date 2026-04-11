@@ -15,6 +15,22 @@
   --page-shadow: 0 18px 45px rgba(26, 34, 40, 0.18);
   --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-heading: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* body background tokens */
+  --body-bg-start: #eff2f4;
+  --body-bg-end: #d8dde2;
+}
+
+[data-theme="dark"] {
+  --paper: #1a2229;
+  --text-body: #aab5be;
+  --text-strong: #d0dae0;
+  --line: #2e3d47;
+  --surface: #1f2c34;
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --page-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  --body-bg-start: #111a1f;
+  --body-bg-end: #0d1418;
 }
 
 * {
@@ -31,9 +47,10 @@ body {
   background:
     radial-gradient(circle at top left, rgba(213, 154, 67, 0.18), transparent 26%),
     radial-gradient(circle at top right, rgba(91, 123, 145, 0.16), transparent 22%),
-    linear-gradient(180deg, #eff2f4 0%, #d8dde2 100%);
+    linear-gradient(180deg, var(--body-bg-start) 0%, var(--body-bg-end) 100%);
   font-family: var(--font-body);
   color: var(--text-body);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .app-shell {
@@ -185,6 +202,7 @@ body {
   border: 1px solid rgba(49, 64, 71, 0.08);
   border-radius: 24px;
   box-shadow: var(--page-shadow);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sidebar {
@@ -515,6 +533,136 @@ body {
 .certificate {
   font-size: 1rem;
   color: var(--text-strong);
+}
+
+/* Dark mode overrides for main area */
+[data-theme="dark"] .summary {
+  background:
+    linear-gradient(180deg, rgba(213, 154, 67, 0.06), rgba(213, 154, 67, 0.01)),
+    var(--surface);
+  border-color: var(--line);
+}
+
+[data-theme="dark"] .certificate-item {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+[data-theme="dark"] .section-title-main {
+  color: #7a8f9b;
+  border-color: var(--line);
+}
+
+[data-theme="dark"] .kv-grid {
+  color: #7a8f9b;
+}
+
+[data-theme="dark"] .job-type,
+[data-theme="dark"] .job-bullets {
+  color: #7a8f9b;
+}
+
+[data-theme="dark"] .certificate {
+  color: var(--text-strong);
+}
+
+[data-theme="dark"] .certificate-meta {
+  color: #6a7c87;
+}
+
+[data-theme="dark"] .edu-school {
+  color: var(--text-strong);
+}
+
+/* Page fade transition for language switch */
+.page-content-fade {
+  animation: fadeIn 0.22s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Copy to clipboard toast */
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(40, 55, 63, 0.95);
+  color: #eef2f5;
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.copy-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Copy icon on contact items */
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+  margin-left: auto;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.contact-item:hover .copy-btn,
+.copy-btn:focus {
+  opacity: 1;
+}
+
+.copy-btn:hover {
+  color: var(--accent);
+}
+
+.copy-btn svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+/* Dark mode toggle button */
+.dark-mode-btn {
+  border: 0;
+  background: transparent;
+  color: var(--text-light);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.dark-mode-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.dark-mode-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
 
 @media (max-width: 960px) {
