@@ -3,6 +3,50 @@ const resumeFiles = {
   vi: "data/resume.vn.json",
 };
 
+// ── Dark mode ──────────────────────────────────────────────────────────────
+const DARK_KEY = "resume-theme";
+
+function applyTheme(dark) {
+  document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  document.getElementById("iconSun").style.display = dark ? "" : "none";
+  document.getElementById("iconMoon").style.display = dark ? "none" : "";
+  localStorage.setItem(DARK_KEY, dark ? "dark" : "light");
+}
+
+function initDarkMode() {
+  const saved = localStorage.getItem(DARK_KEY);
+  const prefersDark = saved
+    ? saved === "dark"
+    : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(prefersDark);
+
+  document.getElementById("darkModeBtn").addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    applyTheme(!isDark);
+  });
+}
+
+// ── Copy to clipboard toast ────────────────────────────────────────────────
+let toastTimer = null;
+
+function showToast(message) {
+  const toast = document.getElementById("copyToast");
+  toast.textContent = message;
+  toast.classList.add("is-visible");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2000);
+}
+
+const copyIconSvg = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>`;
+
+// ── Page fade on language switch ───────────────────────────────────────────
+function triggerPageFade() {
+  const page = document.querySelector(".page");
+  page.classList.remove("page-content-fade");
+  void page.offsetWidth; // reflow to restart animation
+  page.classList.add("page-content-fade");
+}
+
 const icons = {
   phone:
     '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3c.5 0 .9.3 1 .7l.9 3.2c.1.4 0 .9-.3 1.2l-1.3 1.3a14.6 14.6 0 0 0 6.5 6.5l1.3-1.3c.3-.3.8-.4 1.2-.3l3.2.9c.4.1.7.5.7 1v3.5c0 .6-.5 1-1.1 1A17.6 17.6 0 0 1 3 5.1C3 4.5 3.4 4 4 4h2.6Z"></path></svg>',
@@ -108,13 +152,25 @@ function renderContactList(resume) {
   contactList.innerHTML = resume.contact
     .map((item) => {
       const href = sanitizeUrl(item.href);
+      const isCopyable = item.icon === "email" || item.icon === "phone";
       const content = href
         ? `<a class="contact-link" href="${escapeHtml(href)}">${escapeHtml(item.text)}</a>`
         : `<span>${escapeHtml(item.text)}</span>`;
+      const copyBtn = isCopyable
+        ? `<button class="copy-btn" type="button" data-copy="${escapeHtml(item.text)}" aria-label="Copy ${escapeHtml(item.text)}">${copyIconSvg}</button>`
+        : "";
 
-      return `<li class="contact-item">${renderIcon(item.icon)}${content}</li>`;
+      return `<li class="contact-item">${renderIcon(item.icon)}${content}${copyBtn}</li>`;
     })
     .join("");
+
+  contactList.querySelectorAll(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      navigator.clipboard.writeText(btn.dataset.copy).then(() => {
+        showToast(`Copied: ${btn.dataset.copy}`);
+      });
+    });
+  });
 }
 
 function renderSkillList(resume) {
@@ -254,6 +310,7 @@ function renderCtas(resume) {
   `;
 
   document.getElementById("downloadButton").addEventListener("click", () => {
+    trackEvent("download_cv", { lang: state.lang });
     window.ResumePrint.exportResumePdf({ lang: state.lang });
   });
 }
@@ -364,16 +421,26 @@ async function loadResumeFiles() {
   }
 }
 
+function trackEvent(name, props) {
+  if (typeof window.plausible === "function") {
+    window.plausible(name, { props });
+  }
+}
+
 function setLanguage(lang) {
   if (!state.resumes[lang]) {
     return;
   }
 
   state.lang = lang;
+  triggerPageFade();
   renderPage();
+  trackEvent("language_switch", { lang });
 }
 
 async function init() {
+  initDarkMode();
+
   const initialEnResume = getInitialResume("en");
 
   if (initialEnResume) {
